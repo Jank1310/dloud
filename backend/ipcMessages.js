@@ -1,0 +1,4 @@
+module.exports = {
+  CHECK_SETUP_STATUS: 'CHECK_SETUP_STATUS',
+  SETUP_STATUS: 'SETUP_STATUS'
+};

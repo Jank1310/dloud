@@ -1,10 +1,12 @@
 const electron = require('electron');
 const {
     app,
-    BrowserWindow
+    BrowserWindow,
+    ipcMain
 } = electron;
-let window;
+require('dotenv').config();
 
+let window;
 function createWindow() {
     window = new BrowserWindow({
         width: 800,
@@ -28,3 +30,5 @@ app.on('activate', () => {
         createWindow();
     }
 });
+
+const setupHandler = new require('./backend/SetupHandler')(ipcMain);
