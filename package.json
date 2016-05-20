@@ -10,7 +10,7 @@
   "scripts": {
     "start": "electron .",
     "watch": "./node_modules/.bin/webpack-dev-server",
-    "test": "./node_modules/.bin/mocha ./**/*.test.js -w --compilers js:babel-core/register -G"
+    "tests": "./node_modules/.bin/mocha ./**/*.test.js -w --compilers js:babel-core/register"
   },
   "author": "Jan Kühnlein",
   "license": "MIT",
