@@ -11,13 +11,15 @@ class SetupHandler {
     }
 
     handleCheckSetupStatus(event, arg) {
-        let setupComplete = false;
+      let setup = {
+        complete: false
+      };
         if (process.env.AWS_ACCESS_KEY_ID && process.env.AWS_SECRET_ACCESS_KEY) {
-            setupComplete = true;
+            setup.complete = true,
+            setup.awsAccessKeyId = process.env.AWS_ACCESS_KEY_ID,
+            setup.awsSecretAccessKey = process.env.AWS_SECRET_ACCESS_KEY
         }
-        event.sender.send(ipcMessages.SETUP_STATUS, {
-            complete: setupComplete
-        });
+        event.sender.send(ipcMessages.SETUP_STATUS, setup);
     }
 }
 

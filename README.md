@@ -8,4 +8,4 @@ For the electron app use: `npm start`.
 
 ## Tests
 
-Run tests with: `npm run tests`.
+Run tests with: `npm run test`.

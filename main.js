@@ -31,4 +31,5 @@ app.on('activate', () => {
     }
 });
 
-const setupHandler = new require('./backend/SetupHandler')(ipcMain);
+const SetupHandler = require('./backend/SetupHandler');
+let setupHandler = new SetupHandler(ipcMain);

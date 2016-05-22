@@ -19,7 +19,7 @@ describe('SetupHandler', function() {
     it('should return uncompleted setup status', (ready) => {
         delete process.env.AWS_ACCESS_KEY_ID;
         delete process.env.AWS_SECRET_ACCESS_KEY;
-        ipcRenderer.on(ipcMessages.SETUP_STATUS, (setupStatus) => {
+        ipcRenderer.on(ipcMessages.SETUP_STATUS, (event, setupStatus) => {
             expect(setupStatus.complete).to.be.false;
             ready();
         });
@@ -29,8 +29,10 @@ describe('SetupHandler', function() {
     it('should return completed setup status', (ready) => {
         process.env.AWS_ACCESS_KEY_ID = 'some_access_key_id';
         process.env.AWS_SECRET_ACCESS_KEY = 'some_secret_access_key';
-        ipcRenderer.on(ipcMessages.SETUP_STATUS, (setupStatus) => {
+        ipcRenderer.on(ipcMessages.SETUP_STATUS, (event, setupStatus) => {
             expect(setupStatus.complete).to.be.true;
+            expect(setupStatus.awsAccessKeyId).to.equal(process.env.AWS_ACCESS_KEY_ID);
+            expect(setupStatus.awsSecretAccessKey).to.equal(process.env.AWS_SECRET_ACCESS_KEY);
             ready();
         });
         ipcRenderer.send(ipcMessages.CHECK_SETUP_STATUS);
