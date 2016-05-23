@@ -1,0 +1,14 @@
+.sidebar {
+    background-color: #2196F3;
+    box-shadow: inset -7px 0 9px -7px rgba(0,0,0,0.2);
+    .menu-label {
+        color: rgba(#FFFFFF, 0.5);
+        font-weight: 500;
+    }
+    .menu-list a {
+        color: #FFFFFF;
+        &:hover {
+            color: #212121;
+        }
+    }
+}

@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Jank1310/dloud#readme",
   "dependencies": {
     "aws-sdk": "^2.3.14",
+    "bulma": "0.0.26",
     "dotenv": "^2.0.0",
     "history": "^2.1.1",
     "node-sass": "^3.7.0",
